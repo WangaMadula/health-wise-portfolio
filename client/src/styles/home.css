@@ -1,0 +1,119 @@
+.services-section {
+  position: relative;
+  overflow: hidden;
+  background-attachment: fixed !important;
+  background-size: cover !important;
+  background-position: center !important;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.services-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.93));
+  backdrop-filter: blur(5px);
+  transform: translateZ(-1px) scale(2);
+}
+
+.services-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.service-card {
+  text-align: center;
+  padding: 40px 30px;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: pointer;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transform: translateY(30px);
+  opacity: 0;
+  animation: floatIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes floatIn {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Stagger animations for each card */
+.service-card:nth-child(1) { animation-delay: 0.1s; }
+.service-card:nth-child(2) { animation-delay: 0.2s; }
+.service-card:nth-child(3) { animation-delay: 0.3s; }
+.service-card:nth-child(4) { animation-delay: 0.4s; }
+.service-card:nth-child(5) { animation-delay: 0.5s; }
+.service-card:nth-child(6) { animation-delay: 0.6s; }
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0);
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1);
+  color: #3b82f6;
+}
+
+.service-icon {
+  transition: all 0.3s ease;
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.service-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 15px;
+}
+
+.service-description {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  color: #4a5568;
+}
+
+/* Stats Animation */
+@keyframes slideInFromLeft {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.stat-item-hidden {
+  text-align: center;
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+.stat-item-animate {
+  text-align: center;
+  opacity: 0;
+  animation: slideInFromLeft 0.8s ease forwards;
+}
+
+.stat-item-animate:nth-child(1) { animation-delay: 0.1s; }
+.stat-item-animate:nth-child(2) { animation-delay: 0.3s; }
+.stat-item-animate:nth-child(3) { animation-delay: 0.5s; }
+.stat-item-animate:nth-child(4) { animation-delay: 0.7s; }

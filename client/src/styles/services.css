@@ -1,0 +1,45 @@
+.service-card {
+  /* base state: ensure transition is smooth */
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border: 2px solid transparent;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.service-card:hover,
+.service-card:focus-within {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: #63b3ed;
+}
+
+.service-card:active {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: #63b3ed;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.15) rotate(5deg);
+  background: #63b3ed;
+  color: white;
+}
+
+/* accessible focus style for keyboard users */
+.service-card:focus-within {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.15), 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Benefit (Why Choose Us) cards */
+.benefit-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.benefit-card:hover,
+.benefit-card:focus-within,
+.benefit-card:active {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
+  border-color: #63b3ed;
+}

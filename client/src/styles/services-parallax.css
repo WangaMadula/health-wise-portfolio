@@ -1,0 +1,121 @@
+/* Services section with parallax background */
+.services-section {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, 
+    rgba(79, 131, 204, 0.05) 0%, 
+    rgba(88, 110, 161, 0.1) 100%
+  ), url('../assets/images/medical-pattern.svg');
+  background-attachment: fixed !important;
+  background-size: cover !important;
+  background-position: center !important;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Overlay for better readability */
+.services-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, 
+    rgba(255, 255, 255, 0.92), 
+    rgba(255, 255, 255, 0.97)
+  );
+  backdrop-filter: blur(8px);
+  transform: translateZ(-1px) scale(2);
+}
+
+/* Container positioning */
+.services-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Service cards with hover and scroll animations */
+.service-card {
+  text-align: center;
+  padding: 40px 30px;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: pointer;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transform: translateY(30px);
+  opacity: 0;
+  animation: floatIn 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Hover effect */
+.service-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.98);
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.1) translateY(-5px);
+  color: #3b82f6;
+}
+
+/* Card elements styling */
+.service-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  color: #4a5568;
+}
+
+.service-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 15px;
+  color: #1a365d;
+}
+
+.service-description {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+  color: #4a5568;
+}
+
+/* Animation keyframes */
+@keyframes floatIn {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Staggered animations for cards */
+.service-card:nth-child(1) { animation-delay: 0.1s; }
+.service-card:nth-child(2) { animation-delay: 0.2s; }
+.service-card:nth-child(3) { animation-delay: 0.3s; }
+.service-card:nth-child(4) { animation-delay: 0.4s; }
+.service-card:nth-child(5) { animation-delay: 0.5s; }
+.service-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Parallax scroll effect */
+@media (min-width: 768px) {
+  .services-section {
+    transform: translateZ(0);
+  }
+  
+  .services-section::before {
+    transform: translateZ(-1px) scale(2.2);
+  }
+  
+  .service-card {
+    transform: translateZ(50px);
+  }
+}
